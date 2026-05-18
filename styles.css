@@ -222,7 +222,7 @@ body.nav-open {
   width: 100%;
   max-width: var(--max);
   margin: 0 auto;
-  padding: clamp(3.5rem, 9vw, 5rem) 0 2rem;
+  padding: clamp(8.5rem, 20vw, 11.5rem) 0 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -235,22 +235,16 @@ body.nav-open {
   margin: 0 auto;
 }
 
-.hero-logo {
+.hero-logo-img {
   position: absolute;
   top: 0;
   left: 50%;
   z-index: 2;
-  width: fit-content;
-  max-width: calc(100% - 2rem);
-  transform: translate(-50%, -50%);
-}
-
-.hero-logo-img {
   display: block;
-  height: clamp(6.25rem, 14vw, 9.25rem);
+  height: clamp(12rem, 28vw, 18rem);
   width: auto;
-  max-width: min(480px, 92%);
-  margin: 0 auto;
+  max-width: min(820px, calc(100% - 2rem));
+  transform: translate(-50%, -50%);
   object-fit: contain;
   border-radius: 0.625rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
@@ -260,7 +254,7 @@ body.nav-open {
   width: 100%;
   margin: 0 auto;
   text-align: center;
-  padding: clamp(4rem, 11vw, 5.25rem) 1.75rem 2.25rem;
+  padding: clamp(8rem, 22vw, 11rem) 1.75rem 2.25rem;
   background: #ffffff;
   border: 1px solid var(--line);
   border-radius: 24px;
@@ -270,9 +264,9 @@ body.nav-open {
 }
 
 .hero-panel h1 {
-  margin: 0 0 1rem;
+  margin: 0.375rem 0 0.85rem;
   font-family: var(--font-display);
-  font-size: clamp(1.85rem, 4.2vw, 2.65rem);
+  font-size: clamp(1.5rem, 3.4vw, 2.1rem);
   font-weight: 700;
   font-optical-sizing: auto;
   letter-spacing: -0.02em;
@@ -285,7 +279,7 @@ body.nav-open {
   display: block;
   width: min(5.5rem, 40%);
   height: 3px;
-  margin: 0.85rem auto 0;
+  margin: 0.65rem auto 0;
   border-radius: 3px;
   background: linear-gradient(
     90deg,
@@ -309,8 +303,8 @@ body.nav-open {
 
 .hero-title-help {
   display: block;
-  margin-top: 0.55rem;
-  font-size: clamp(1.35rem, 3.2vw, 2rem);
+  margin-top: 0.45rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.55rem);
   font-weight: 600;
   letter-spacing: -0.015em;
   color: var(--navy-soft);
@@ -320,8 +314,8 @@ body.nav-open {
   margin: 0 auto;
   max-width: 36rem;
   color: var(--text-muted);
-  font-size: 1.08rem;
-  line-height: 1.65;
+  font-size: 0.98rem;
+  line-height: 1.6;
 }
 
 main {
@@ -740,17 +734,30 @@ main {
   }
 
   .hero-inner {
-    padding: clamp(4.5rem, 16vw, 5.5rem) 0 1.25rem;
+    padding: clamp(10.5rem, 34vw, 12.5rem) 0 1.25rem;
   }
 
   .hero-panel {
-    padding: clamp(5rem, 18vw, 5.75rem) 1.2rem 1.75rem;
+    padding: clamp(9.5rem, 32vw, 11.25rem) 1.2rem 1.75rem;
     border-radius: 20px;
   }
 
   .hero-logo-img {
-    height: clamp(8rem, 42vw, 10.5rem);
-    max-width: min(360px, 88vw);
+    height: clamp(15rem, 80vw, 20rem);
+    max-width: min(680px, 90vw);
+  }
+
+  .hero-panel h1 {
+    margin-top: 0.5rem;
+    font-size: clamp(1.4rem, 5.5vw, 1.85rem);
+  }
+
+  .hero-title-help {
+    font-size: clamp(1.05rem, 4.2vw, 1.35rem);
+  }
+
+  .hero-lead {
+    font-size: 0.94rem;
   }
 
   .card {
@@ -762,16 +769,20 @@ main {
 
 @media (max-width: 767px) {
   .hero-inner {
-    padding-top: clamp(4.25rem, 14vw, 5.25rem);
+    padding-top: clamp(11rem, 32vw, 13rem);
   }
 
   .hero-panel {
-    padding-top: clamp(4.75rem, 16vw, 5.5rem);
+    padding-top: clamp(10rem, 30vw, 12.25rem);
+  }
+
+  .hero-panel h1 {
+    margin-top: 0.5rem;
   }
 
   .hero-logo-img {
-    height: clamp(7.25rem, 32vw, 10rem);
-    max-width: min(360px, 88vw);
+    height: clamp(13.5rem, 62vw, 19rem);
+    max-width: min(680px, 90vw);
   }
 
   .header-inner {
