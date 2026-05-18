@@ -39,7 +39,18 @@
             decoding="async"
           />
         </a>
-        <nav class="nav" aria-label="Page sections">
+        <button
+          type="button"
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Open menu"
+        >
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+        <nav id="site-nav" class="nav" aria-label="Page sections">
           <a href="#about">About</a>
           <a href="#buy">Buy</a>
           <a href="#sell">Sell</a>
@@ -54,16 +65,17 @@
       <div class="hero-media" aria-hidden="true"></div>
       <div class="hero-scrim" aria-hidden="true"></div>
       <div class="hero-inner">
-        <div class="hero-panel">
+        <div class="hero-card">
           <div class="hero-logo">
-            <img
-              class="hero-logo-img"
-              src="assets/horizonLogo.png"
-              alt="Horizon Automotive Solutions"
-              loading="eager"
-              decoding="async"
-            />
+          <img
+            class="hero-logo-img"
+            src="assets/horizonLogo.png"
+            alt="Horizon Automotive Solutions"
+            loading="eager"
+            decoding="async"
+          />
           </div>
+          <div class="hero-panel">
           <h1 id="hero-title">
             <span class="hero-title-questions">
               <span class="hero-q">Buying?</span>
@@ -78,6 +90,7 @@
             a simple, efficient and transparent experience whether you are
             purchasing a new or pre owned vehicle, selling or trading in.
           </p>
+          </div>
         </div>
       </div>
     </section>
@@ -494,5 +507,40 @@
         <p><a href="mailto:carguymanny@gmail.com">carguymanny@gmail.com</a></p>
       </div>
     </footer>
+    <script>
+      (function () {
+        const header = document.querySelector(".site-header");
+        const toggle = document.querySelector(".nav-toggle");
+        const nav = document.getElementById("site-nav");
+        if (!header || !toggle || !nav) return;
+
+        function setNavOpen(open) {
+          header.classList.toggle("is-nav-open", open);
+          document.body.classList.toggle("nav-open", open);
+          toggle.setAttribute("aria-expanded", open ? "true" : "false");
+          toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        }
+
+        toggle.addEventListener("click", function () {
+          setNavOpen(!header.classList.contains("is-nav-open"));
+        });
+
+        nav.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", function () {
+            setNavOpen(false);
+          });
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape") setNavOpen(false);
+        });
+
+        window
+          .matchMedia("(min-width: 768px)")
+          .addEventListener("change", function (event) {
+            if (event.matches) setNavOpen(false);
+          });
+      })();
+    </script>
   </body>
 </html>
