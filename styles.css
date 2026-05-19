@@ -515,6 +515,11 @@ main {
   margin-top: 1.5rem;
 }
 
+.footer-contact-label {
+  color: #b8c5ce;
+  margin-top: 0.75rem !important;
+}
+
 .content-section--contact .wow-panel {
   margin-top: 1.75rem;
 }
