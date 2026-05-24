@@ -55,16 +55,16 @@
           <span class="nav-toggle-bar" aria-hidden="true"></span>
           <span class="nav-toggle-bar" aria-hidden="true"></span>
         </button>
+        <nav id="site-nav" class="nav" aria-label="Page sections">
+          <a href="#about">About</a>
+          <a href="#buy">Buy</a>
+          <a href="#sell">Sell</a>
+          <a href="#trade">Trade</a>
+          <a href="#private-sale">Private sale help</a>
+          <a href="#contact">Contact</a>
+        </nav>
       </div>
     </header>
-    <nav id="site-nav" class="nav" aria-label="Page sections">
-      <a href="#about">About</a>
-      <a href="#buy">Buy</a>
-      <a href="#sell">Sell</a>
-      <a href="#trade">Trade</a>
-      <a href="#private-sale">Private sale help</a>
-      <a href="#contact">Contact</a>
-    </nav>
 
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-media" aria-hidden="true"></div>
@@ -527,8 +527,15 @@
           toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
         }
 
-        toggle.addEventListener("click", function () {
+        toggle.addEventListener("click", function (event) {
+          event.stopPropagation();
           setNavOpen(!header.classList.contains("is-nav-open"));
+        });
+
+        document.addEventListener("click", function (event) {
+          if (!header.classList.contains("is-nav-open")) return;
+          if (header.contains(event.target)) return;
+          setNavOpen(false);
         });
 
         nav.querySelectorAll("a").forEach(function (link) {
